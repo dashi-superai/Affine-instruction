@@ -22,7 +22,7 @@ class TrainingArguments:
     inference_file: str = field(
         default="/home/vera1/AgentGym/agentenv/examples/agentevol/data/train/babyai_train.json", metadata={"help": "Inference dataset."}
     )
-    test_file: str = field(default="/home/vera1/AgentGym/agentenv/examples/agentevol/data/test/babyai_train.json", metadata={"help": "Test dataset."})
+    test_file: str = field(default="/home/vera1/AgentGym/agentenv/examples/agentevol/data/test/babyai_test.json", metadata={"help": "Test dataset."})
     iter_data_path: str = field(
         default="./iter_data/train_iter_0.json", metadata={"help": "Iter data path (dir)"}
     )
