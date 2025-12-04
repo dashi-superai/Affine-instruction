@@ -20,15 +20,15 @@ class TrainingArguments:
     # data path
     train_file: str = field(metadata={"help": "Training dataset."})
     inference_file: str = field(
-        default="/home/vera1/AgentGym/agentenv/examples/agentevol/data/train/babyai_train.json", metadata={"help": "Inference dataset."}
+        default="/home/shadeform/Affine-instruction/agentenv/examples/agentevol/data/train/babyai_train.json", metadata={"help": "Inference dataset."}
     )
-    test_file: str = field(default="/home/vera1/AgentGym/agentenv/examples/agentevol/data/test/babyai_test.json", metadata={"help": "Test dataset."})
+    test_file: str = field(default="/home/shadeform/Affine-instruction/agentenv/examples/agentevol/data/test/babyai_test.json", metadata={"help": "Test dataset."})
     iter_data_path: str = field(
         default="./iter_data/train_iter_0.json", metadata={"help": "Iter data path (dir)"}
     )
     # model path
     model_train_path: str = field(
-        default="/home/vera1/AgentGym/agentenv/top_model",
+        default="/home/shadeform/Affine-instruction/agentenv/top_model",
         metadata={"help": "Path of initial train model"},
     )
     model_save_path: str = field(
