@@ -20,7 +20,7 @@ class TrainingArguments:
     # data path
     train_file: str = field(metadata={"help": "Training dataset."})
     inference_file: str = field(
-        default="/home/shadeform/Affine-instruction/agentenv/examples/agentevol/data/train/babyai_train.json", metadata={"help": "Inference dataset."}
+        default="/home/shadeform/Affine-instruction/agentenv/examples/agentevol/data/test/babyai_test.json", metadata={"help": "Inference dataset."}
     )
     test_file: str = field(default="/home/shadeform/Affine-instruction/agentenv/examples/agentevol/data/test/babyai_test.json", metadata={"help": "Test dataset."})
     iter_data_path: str = field(
@@ -38,10 +38,10 @@ class TrainingArguments:
     task_name: str = field(default="babyai", metadata={"help": "Task name for evaluation"})
     # train config
     batch_size: int = field(
-        default=1,
+        default=4,
         metadata={"help": "Batch size for training."},
     )
-    eval_batch_size: int = field(default=2, metadata={"help": "Batch size for evaluation."})
+    eval_batch_size: int = field(default=8, metadata={"help": "Batch size for evaluation."})
     n_epochs: int = field(default=40)
     num_workers: int = field(default=8, metadata={"help": "Number of subprocesses to use for data loading."})
     learning_rate: float = field(default=2e-5, metadata={"help": "Learning rate."})
@@ -51,8 +51,8 @@ class TrainingArguments:
     gradient_accumulation_steps: int = field(default=1)
     evaluating_epoch_freq: int = field(default=1)
     logging_epoch_freq: int = field(default=1)
-    saving_epoch_freq: int = field(default=1)
-    evaluating_step_freq: int = field(default=None)
+    saving_epoch_freq: int = field(default=5)
+    evaluating_step_freq: int = field(default=5)
     logging_step_freq: int = field(default=None)
     seed: int = field(default=42)
     max_input_length: int = field(default=700)
@@ -63,7 +63,7 @@ class TrainingArguments:
 
     # environment
     max_round: int = field(
-        default=6,
+        default=30,
         metadata={"help": "Interaction rounds between agents and environment"},
     )
 
@@ -84,7 +84,7 @@ def main():
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_train_path)
     model = AutoModelForCausalLM.from_pretrained(
-        args.model_train_path, low_cpu_mem_usage=True, torch_dtype=torch.bfloat16
+        args.model_train_path, low_cpu_mem_usage=True, torch_dtype=torch.float32
     )
     model.gradient_checkpointing_enable()
 

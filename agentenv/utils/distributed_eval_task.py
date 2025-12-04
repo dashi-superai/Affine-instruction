@@ -59,7 +59,7 @@ def main():
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_path)
     model = AutoModelForCausalLM.from_pretrained(
-        args.model_path, low_cpu_mem_usage=True, torch_dtype=torch.bfloat16
+        args.model_path, low_cpu_mem_usage=True, torch_dtype=torch.float32
     )
     model.gradient_checkpointing_enable()
 

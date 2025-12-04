@@ -161,7 +161,7 @@ def train():
         config=config,
         cache_dir=training_args.cache_dir,
         trust_remote_code=model_args.trust_remote_code,
-        torch_dtype=torch.bfloat16,
+        torch_dtype=torch.float32,
         attn_implementation="flash_attention_2",
     )
     model.gradient_checkpointing_enable()
@@ -173,7 +173,7 @@ def train():
         config=config,
         cache_dir=training_args.cache_dir,
         trust_remote_code=model_args.trust_remote_code,
-        torch_dtype=torch.bfloat16,
+        torch_dtype=torch.float32,
         attn_implementation="flash_attention_2",
     ).eval()
 
